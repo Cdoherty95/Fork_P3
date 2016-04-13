@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Finances</title>
+</head>
+<body>
+<h1>Welcome to your finances page</h1>
+<h2>Your current balance is:</h2>
+<div id="currentbal"></div>
+<h2>Make a payment</h2>
+<div>
+<form action="#">
+    Enter The amount you wish to pay: <input type="number" id="input"><button type="button" onclick="myFunction()">See new balance</button>
+    <input type="submit" value="Send Payment">
+</form>
+
+</div>
+<h2>New balance is: </h2>
+<div id="newbal"></div>
+</body>
+<script>
+    window.onload = setbal();
+    function myFunction() {
+        var input = document.getElementById("input").value;
+        var balance = 20000;
+        var newbal;
+        if (input < 0)
+        {
+            alert("payment cannot be a negative number");
+        }
+        else if (balance-input < 0)
+        {
+            alert("You cannot pay more than your current balance");
+        }
+        else{
+            newbal = (balance-input);
+            document.getElementById("newbal").innerHTML = ("$" + balance + " - " + "$" + input + " = " + "$" + newbal);
+        }
+    }
+    function setbal(){
+        var balance1 = "$20000";
+        document.getElementById("currentbal").innerHTML = balance1;
+    }
+</script>
+</html>
